@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "사이트 A",
-  description: "스브링부트 , Next.js 연습용 사이트",
+  description: "스프링부트, Next.js 연동",
 };
 
 export default function RootLayout({
@@ -25,9 +26,20 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased border-2 min-h-screen border-blue-500 flex flex-col`}
       >
-        {children}
+        <header>
+          <nav className="flex">
+            <Link href="/" className="p-2 rounded hover:bg-gray-100">
+              메인
+            </Link>
+            <Link href="/posts" className="p-2 rounded hover:bg-gray-100">
+              글 목록
+            </Link>
+          </nav>
+        </header>
+        <main className="border-2 border-green-500 flex-1">{children}</main>
+        <footer className="border-2 border-red-500">푸터</footer>
       </body>
     </html>
   );
