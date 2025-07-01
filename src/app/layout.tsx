@@ -38,7 +38,9 @@ export default function RootLayout({
             </Link>
           </nav>
         </header>
-        <main className="border-2 border-green-500 flex-1">{children}</main>
+        <main className="border-2 border-green-500 flex-1 flex flex-col">
+          {children}
+        </main>
         <footer className="border-2 border-red-500">푸터</footer>
       </body>
     </html>
